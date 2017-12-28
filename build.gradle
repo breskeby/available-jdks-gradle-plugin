@@ -10,7 +10,7 @@ dependencies {
     compile gradleApi()
 }
 
-group='com.breskeby'
+group='com.breskeby.gradle'
 
 def versionPostFix = Project.hasProperty('release') ? '' : '-SNAPSHOT'
 def baseVersion = '0.1'
