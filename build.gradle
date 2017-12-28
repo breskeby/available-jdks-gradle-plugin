@@ -1,0 +1,18 @@
+plugins {
+    id "com.gradle.plugin-publish" version "0.9.9"
+}
+
+apply plugin:'groovy'
+apply plugin:'idea'
+
+dependencies {
+    compile localGroovy()
+    compile gradleApi()
+}
+
+group='com.breskeby'
+
+def versionPostFix = Project.hasProperty('release') ? '' : '-SNAPSHOT'
+def baseVersion = '0.1'
+
+version= "$baseVersion-$versionPostFix"
