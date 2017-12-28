@@ -12,7 +12,23 @@ dependencies {
 
 group='com.breskeby.gradle'
 
-def versionPostFix = Project.hasProperty('release') ? '' : '-SNAPSHOT'
-def baseVersion = '0.1'
+def versionPostFix = project.hasProperty('release') ? '' : '-SNAPSHOT'
+def baseVersion = '0.7'
 
-version= "$baseVersion-$versionPostFix"
+version= "$baseVersion$versionPostFix"
+
+pluginBundle {
+    website = 'https://github.com/breskeby/jdk-gradle-plugins#jdks-gradle-plugins'
+    vcsUrl = 'https://github.com/breskeby/jdk-gradle-plugins'
+
+    tags = ['jdk', 'environment']
+
+    plugins {
+        targetJdk6Plugin {
+            id = 'com.breskeby.target-jdk6'
+            displayName = 'Target JDK6 Plugin'
+            description = 'build java 6 compliant libraries using JDK6'
+            tags = ['jdk6', 'java6']
+        }
+    }
+}
