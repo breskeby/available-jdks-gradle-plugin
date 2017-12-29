@@ -1,7 +1,9 @@
 plugins {
     id "com.gradle.plugin-publish" version "0.9.9"
+    id "org.shipkit.versioning" version "1.0.4"
 }
 
+apply plugin: "org.shipkit.java"
 apply plugin:'groovy'
 apply plugin:'idea'
 
@@ -11,11 +13,6 @@ dependencies {
 }
 
 group='com.breskeby.gradle'
-
-def versionPostFix = project.hasProperty('release') ? '' : '-SNAPSHOT'
-def baseVersion = '0.7'
-
-version= "$baseVersion$versionPostFix"
 
 pluginBundle {
     website = 'https://github.com/breskeby/jdk-gradle-plugins#jdks-gradle-plugins'
