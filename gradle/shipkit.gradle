@@ -2,25 +2,17 @@ shipkit {
    //TODO is the repository correct?
    gitHub.repository = "breskeby/jdk-gradle-plugins"
 
-   //TODO generate and use your own read-only GitHub personal access token
    gitHub.readOnlyAuthToken = System.getenv('GH_READ_TOKEN')
 
-   //TODO generate GitHub write token, and ensure your Travis CI has this env variable exported
    gitHub.writeAuthToken = System.getenv("GH_WRITE_TOKEN")
 }
 
 allprojects {
    plugins.withId("com.jfrog.bintray") {
-
        //Bintray configuration is handled by JFrog Bintray Gradle Plugin
        //For reference see the official documentation: https://github.com/bintray/gradle-bintray-plugin
        bintray {
-
-           //TODO sign up for free open source account with https://bintray.com, then look up your API key on your profile page in Bintray
            key = System.getenv("BINTRAY_API_TOKEN")
-           //TODO don't check in the key, remove above line and use env variable exported on CI:
-           //key = System.getenv("BINTRAY_API_KEY")
-
            pkg {
                //TODO configure Bintray settings per your project (https://github.com/bintray/gradle-bintray-plugin)
                repo = 'gradle-plugins'
