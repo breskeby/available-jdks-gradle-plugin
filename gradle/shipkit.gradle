@@ -5,6 +5,7 @@ shipkit {
    gitHub.readOnlyAuthToken = System.getenv('GH_READ_TOKEN')
 
    gitHub.writeAuthToken = System.getenv("GH_WRITE_TOKEN")
+   gitHub.writeAuthUser = 'breskeby'
 }
 
 allprojects {
