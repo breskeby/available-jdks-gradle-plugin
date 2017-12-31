@@ -21,6 +21,9 @@ allprojects {
                licenses = ['MIT']
                labels = ['java', 'java6', 'jdk6', 'environment']
                version {
+                  gpg {
+                        sign = false
+                  }
                    mavenCentralSync {
                        false
                    }
