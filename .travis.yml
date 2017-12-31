@@ -14,9 +14,8 @@ script:
 - "./gradlew build -s && ./gradlew ciPerformRelease"
 before_install:
 - openssl aes-256-cbc -K $encrypted_1148b47197a9_key -iv $encrypted_1148b47197a9_iv
-  -in github_deploy_key.enc -out .travis/github_deploy_key -d
-- openssl aes-256-cbc -K $encrypted_1148b47197a9_key -iv $encrypted_1148b47197a9_iv
-  -in github_deploy_key.enc -out ~\/dev/temp/github_deploy_key -d
+  -in .travis/github_deploy_key.enc -out .travis/github_deploy_key -d
+
 env:
   global:
     secure: T5Zi9sMpqsAk/maof3+CsG8zqoQiyihr8fUlTH+DRv4xCoXWDVuZSAc8CYnGZ1rotImBTQc7ttkUX//OPfL+KYEqzk3WE06atc1MBbnoDpmw/isgIy7+9DNRGPX5INgyjk99XkaXf0LpIvowIzzVCrq3m9OtRg4qI8CBsRc7dWKNcWqFaL2js218cxHV+kTlOX6R06gP5JqWoyhrf78PfhIfUzZEvdFHQ0UyeI94HQjftmwwAmn5xIJOhyYSJ7NvxAL774JrodOZoPXy339twwpl3vGjDVGNpkTHxbhe8rHgKzV2bJ+MkWiA9E0r56etrDbDnBsUAS2Bc7iFE30S9tlwZ/8lt4DaE8pKXANgiKBsWs5YLj/TqYShAw0Cz73tllZxYIDNJ9uZXNEtWxgvZVT5tADKHOiGp5u4+lDEZdGixL/9+EKdz34QasQfNYhX5xGOV9gjw4lspjFyqI9NQkxrEswdPVEq43L1tgGCFgKknka8pYYvgd7Luu9Nt77ROJqtyO2T0cPE6DZuir0HkCfuEjv/+8dInoouNTp99I/h5Mz3Jo1pOoQhy9ffyQdeOC0rn9D3cvgf7XyZlbluH54lv/fh2MjlMLAnuLANsqIc6zheyZgzAlLinFYS9uYp9wOAcSzA2ASexZ17542oObOxzFXm7JFFTK8c3lESmpM=
