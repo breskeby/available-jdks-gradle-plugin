@@ -22,7 +22,7 @@ allprojects {
                labels = ['java', 'java6', 'jdk6', 'environment']
                version {
                   gpg {
-                        sign = false
+                      passphrase = System.getenv("BINTRAY_GPG_PASSPHRASE")
                   }
                    mavenCentralSync {
                        false
