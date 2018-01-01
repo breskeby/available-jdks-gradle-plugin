@@ -8,13 +8,16 @@ shipkit {
     gitHub.writeAuthUser = 'breskeby'
 }
 
-task travis {
-    if (System.getenv('TRAVIS_BRANCH') == 'release') {
-        dependsOn ciPerformRelease
-    } else {
-        doLast {
-            println "nothing to do"
-        }
+task travis
+
+publishPlugins.mustRunAfter ciPerformRelease
+
+if (System.getenv('TRAVIS_BRANCH') == 'release') {
+    travis.dependsOn ciPerformRelease
+    travis.dependsOn publishPlugins
+} else {
+    travis.doLast {
+        println "nothing to do"
     }
 }
 
