@@ -1,34 +1,44 @@
 shipkit {
-   //TODO is the repository correct?
-   gitHub.repository = "breskeby/jdk-gradle-plugins"
+    //TODO is the repository correct?
+    gitHub.repository = "breskeby/jdk-gradle-plugins"
 
-   gitHub.readOnlyAuthToken = System.getenv('GH_READ_TOKEN')
+    gitHub.readOnlyAuthToken = System.getenv('GH_READ_TOKEN')
 
-   gitHub.writeAuthToken = System.getenv("GH_WRITE_TOKEN")
-   gitHub.writeAuthUser = 'breskeby'
+    gitHub.writeAuthToken = System.getenv("GH_WRITE_TOKEN")
+    gitHub.writeAuthUser = 'breskeby'
+}
+
+task travis {
+    if (System.getenv('TRAVIS_BRANCH') == 'release') {
+        dependsOn ciPerformRelease
+    } else {
+        doLast {
+            println "nothing to do"
+        }
+    }
 }
 
 allprojects {
-   plugins.withId("com.jfrog.bintray") {
-       //Bintray configuration is handled by JFrog Bintray Gradle Plugin
-       //For reference see the official documentation: https://github.com/bintray/gradle-bintray-plugin
-       bintray {
-           key = System.getenv("BINTRAY_API_TOKEN")
-           pkg {
-               //TODO configure Bintray settings per your project (https://github.com/bintray/gradle-bintray-plugin)
-               repo = 'gradle-plugins'
-               user = 'breskeby'
-               licenses = ['MIT']
-               labels = ['java', 'java6', 'jdk6', 'environment']
-               version {
-                  gpg {
-                      passphrase = System.getenv("BINTRAY_GPG_PASSPHRASE")
-                  }
-                   mavenCentralSync {
-                       false
-                   }
-               }
-           }
-       }
-   }
+    plugins.withId("com.jfrog.bintray") {
+        //Bintray configuration is handled by JFrog Bintray Gradle Plugin
+        //For reference see the official documentation: https://github.com/bintray/gradle-bintray-plugin
+        bintray {
+            key = System.getenv("BINTRAY_API_TOKEN")
+            pkg {
+                //TODO configure Bintray settings per your project (https://github.com/bintray/gradle-bintray-plugin)
+                repo = 'gradle-plugins'
+                user = 'breskeby'
+                licenses = ['MIT']
+                labels = ['java', 'java6', 'jdk6', 'environment']
+                version {
+                    gpg {
+                        passphrase = System.getenv("BINTRAY_GPG_PASSPHRASE")
+                    }
+                    mavenCentralSync {
+                        false
+                    }
+                }
+            }
+        }
+    }
 }
