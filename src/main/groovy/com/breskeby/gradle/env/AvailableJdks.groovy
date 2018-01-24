@@ -48,7 +48,6 @@ class AvailableJdks {
         new File(getJdk6HomeFor(task), "bin/java")
     }
 
-
     private static final List<String> RUNTIME_JAR_PATHS = ['jre/lib/rt.jar', 'bundle/Classes/classes.jar']
 
     static File getJdk6RuntimeJarFor(Task task) {
