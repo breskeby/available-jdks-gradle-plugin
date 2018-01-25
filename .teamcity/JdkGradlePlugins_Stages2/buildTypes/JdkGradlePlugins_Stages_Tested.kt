@@ -1,4 +1,4 @@
-package JdkGradlePlugins_Stages.buildTypes
+package JdkGradlePlugins_Stages2.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2017_2.*
 import jetbrains.buildServer.configs.kotlin.v2017_2.triggers.vcs
