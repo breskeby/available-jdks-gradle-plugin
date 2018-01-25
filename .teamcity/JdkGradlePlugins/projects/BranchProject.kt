@@ -9,5 +9,18 @@ class BranchProject(branch:String, uuid:String) : Project({
     id = "JdkGradlePlugins_$branch"
     parentId = "JdkGradlePlugins"
     name = branch
-    buildType(JdkGradlePlugins_Branch(uuid = uuid + "_$branch", branch = branch))
+
+    subProjects(Project({
+        this.uuid = "${uuid}-stages"
+        id = "JdkGradlePlugins_${branch}_Stages"
+        parentId = "${BranchProject::id}"
+        name = "Stages"
+
+        buildType(JdkGradlePlugins_Branch(uuid = uuid + "_$branch", branch = branch))
+
+    }
+
+    ))
+
+
 })

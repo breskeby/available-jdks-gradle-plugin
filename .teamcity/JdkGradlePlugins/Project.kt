@@ -18,5 +18,7 @@ object Project : Project({
 
     subProjects(
             BranchProject("Master", "165EA6F9-C2BD-436E-B1E3-FBE59C3A308C"),
-            BranchProject("Release", "C8937837-F200-4C21-8AD5-7C5484BC93AB"))
+            BranchProject("Release", "C8937837-F200-4C21-8AD5-7C5484BC93AB")
+    )
+
 })
