@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.v2017_2.BuildType
 
 class JdkGradlePlugins_Branch(uuid: String, branch: String) : BuildType({
     this.uuid = uuid
-    this.id = "JdkGradlePlugins_${branch}"
+    this.id = "JdkGradlePlugins_BT_${branch}"
     this.name = "JdkGradlePlugins${branch}"
 
     vcs {
