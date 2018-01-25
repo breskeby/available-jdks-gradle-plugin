@@ -1,6 +1,6 @@
-package JdkGradlePlugins_Stages
+package JdkGradlePlugins_Stages2
 
-import JdkGradlePlugins_Stages.buildTypes.JdkGradlePlugins_Stages_Tested
+import JdkGradlePlugins_Stages2.buildTypes.JdkGradlePlugins_Stages_Tested
 import jetbrains.buildServer.configs.kotlin.v2017_2.Project
 
 object Project : Project({

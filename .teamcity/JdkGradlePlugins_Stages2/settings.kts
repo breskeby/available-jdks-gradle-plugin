@@ -1,4 +1,4 @@
-package JdkGradlePlugins_Stages
+package JdkGradlePlugins_Stages2
 
 import jetbrains.buildServer.configs.kotlin.v2017_2.*
 
@@ -32,4 +32,4 @@ the 'Debug' option is available in the context menu for the task.
 */
 
 version = "2017.2"
-project(JdkGradlePlugins_Stages.Project)
+project(JdkGradlePlugins_Stages2.Project)
