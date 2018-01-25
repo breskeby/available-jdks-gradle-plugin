@@ -7,4 +7,5 @@ BuildFixture for detecting and using different jdks in a gradle build
 TODO: - java7 support
       - func tests
       - cross version tests
+      - sample projects
 
