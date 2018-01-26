@@ -20,7 +20,7 @@ changeBuildType("C8937837-F200-4C21-8AD5-7C5484BC93AB_release") {
         }
         trigger1.apply {
             triggerRules = ""
-            branchFilter = ""
+            branchFilter = "+:*"
         }
     }
 }
