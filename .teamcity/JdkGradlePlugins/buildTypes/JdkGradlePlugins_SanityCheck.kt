@@ -1,11 +1,11 @@
 package JdkGradlePlugins.buildTypes
 
-import jetbrains.buildServer.configs.kotlin.v2017_2.*
+import jetbrains.buildServer.configs.kotlin.v2017_2.BuildType
 import jetbrains.buildServer.configs.kotlin.v2017_2.buildSteps.gradle
 
-object JdkGradlePlugins_SanityCheck : BuildType({
-    uuid = "39a450f0-cdf6-465e-a9bc-5109d30ba798"
-    id = "JdkGradlePlugins_SanityCheck"
+class JdkGradlePlugins_SanityCheck(branch: String) : BuildType({
+    uuid = "39a450f0-cdf6-465e-a9bc-5109d30ba798-$branch"
+    id = "JdkGradlePlugins_${branch}_buildAndTest_SanityCheck"
     name = "SanityCheck"
 
     params {
