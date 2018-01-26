@@ -27,8 +27,8 @@ changeVcsRoot("JdkGradlePlugins_HttpsGithubComBreskebyJdkGradlePluginsGit_releas
     }
 
     (this as GitVcsRoot).apply {
-        branch = "refs/heads/master"
-        branchSpec = "+:refs/heads/master"
+        branch = "refs/heads/release"
+        branchSpec = "+:refs/heads/release"
         authMethod = password {
         }
     }
