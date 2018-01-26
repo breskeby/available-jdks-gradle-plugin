@@ -1,6 +1,5 @@
 package _Root.vcsRoots
 
-import jetbrains.buildServer.configs.kotlin.v2017_2.*
 import jetbrains.buildServer.configs.kotlin.v2017_2.vcs.GitVcsRoot
 
 object JdkGradlePlugins_HttpsGithubComBreskebyJdkGradlePluginsGit : GitVcsRoot({

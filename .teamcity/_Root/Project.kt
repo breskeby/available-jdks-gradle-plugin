@@ -1,8 +1,7 @@
 package _Root
 
 import _Root.vcsRoots.*
-import _Root.vcsRoots.JdkGradlePlugins_HttpsGithubComBreskebyJdkGradlePluginsGit
-import jetbrains.buildServer.configs.kotlin.v2017_2.*
+import jetbrains.buildServer.configs.kotlin.v2017_2.ParameterDisplay
 import jetbrains.buildServer.configs.kotlin.v2017_2.Project
 import jetbrains.buildServer.configs.kotlin.v2017_2.projectFeatures.VersionedSettings
 import jetbrains.buildServer.configs.kotlin.v2017_2.projectFeatures.versionedSettings
@@ -16,6 +15,8 @@ object Project : Project({
     vcsRoot(Gradle_Branches_VersionedSettings)
     vcsRoot(Gradle_Master)
     vcsRoot(JdkGradlePlugins_HttpsGithubComBreskebyJdkGradlePluginsGit)
+    vcsRoot(JdkGradlePluginsVcsRootMaster)
+    vcsRoot(JdkGradlePluginsVcsRootRelease)
 
     params {
         param("env.BUILD_ID", "%teamcity.build.id%")
