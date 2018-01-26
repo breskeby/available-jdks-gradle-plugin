@@ -13,9 +13,6 @@ object Project : Project({
     parentId = "_Root"
     name = "Jdk Gradle Plugins"
 
-    buildType(JdkGradlePlugins_FuncTest)
-    buildType(JdkGradlePlugins_UnitTest)
-
     subProjects(
             BranchProject("master", JdkGradlePluginsVcsRootMaster, "165EA6F9-C2BD-436E-B1E3-FBE59C3A308C"),
             BranchProject("release",JdkGradlePluginsVcsRootRelease, "C8937837-F200-4C21-8AD5-7C5484BC93AB")
