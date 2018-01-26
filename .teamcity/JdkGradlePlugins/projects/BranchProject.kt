@@ -19,7 +19,7 @@ class BranchProject(branch: String, uuid: String) : Project({
                 buildType(JdkGradlePlugins_Stage_Trigger_BT(uuid + "_$branch", branch, {
                     it.vcs {
                         root(_Root.vcsRoots.JdkGradlePlugins_HttpsGithubComBreskebyJdkGradlePluginsGit)
-                        buildDefaultBranch = true
+                        buildDefaultBranch = (branch != "master")
                         excludeDefaultBranchChanges = (branch != "master")
 
                     }
