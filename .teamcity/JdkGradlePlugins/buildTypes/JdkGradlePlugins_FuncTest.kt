@@ -1,5 +1,6 @@
 package JdkGradlePlugins.buildTypes
 
+import _Root.vcsRoots.JdkGradlePluginsVcsRootMaster
 import jetbrains.buildServer.configs.kotlin.v2017_2.BuildType
 
 object JdkGradlePlugins_FuncTest : BuildType({
@@ -15,7 +16,7 @@ object JdkGradlePlugins_FuncTest : BuildType({
     }
 
     dependencies {
-        dependency(JdkGradlePlugins.buildTypes.JdkGradlePlugins_SanityCheck("branch")) {
+        dependency(JdkGradlePlugins.buildTypes.JdkGradlePlugins_SanityCheck("branch", JdkGradlePluginsVcsRootMaster)) {
             snapshot {
             }
         }

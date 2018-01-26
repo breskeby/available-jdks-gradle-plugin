@@ -2,17 +2,18 @@ package JdkGradlePlugins.projects
 
 import JdkGradlePlugins.buildTypes.JdkGradlePlugins_SanityCheck
 import JdkGradlePlugins.buildTypes.JdkGradlePlugins_Stage_Trigger_BT
-import _Root.vcsRoots.JdkGradlePluginsVcsRootMaster
-import _Root.vcsRoots.JdkGradlePluginsVcsRootRelease
+import isReleaseOrMaster
 import jetbrains.buildServer.configs.kotlin.v2017_2.Project
 import jetbrains.buildServer.configs.kotlin.v2017_2.vcs.GitVcsRoot
 
 
-class BranchProject(branch: String, vcsRoot: GitVcsRoot, uuid: String) : Project({
+class BranchProject(branch: String, vcsRoot: GitVcsRoot, uuid: String) : DotcomProject({
     this.uuid = uuid
     id = "JdkGradlePlugins_$branch"
     parentId = "JdkGradlePlugins"
     name = branch
+
+    val sanityBt = JdkGradlePlugins_SanityCheck(branch, vcsRoot)
 
     subProjects(
             Project({
@@ -24,18 +25,15 @@ class BranchProject(branch: String, vcsRoot: GitVcsRoot, uuid: String) : Project
                         root(vcsRoot)
                         buildDefaultBranch = isReleaseOrMaster(vcsRoot)
                         excludeDefaultBranchChanges = isReleaseOrMaster(vcsRoot)
-
                     }
+                    it.dependencies.dependency(sanityBt, {})
                 }))
             }),
             Project({
                 this.uuid = "${uuid}-buildAndTest"
                 id = "JdkGradlePlugins_${branch}_buildAndTest"
                 name = "Build & Test"
-                buildType(JdkGradlePlugins_SanityCheck(branch))
+                buildType(sanityBt)
             })
     )
 })
-
-private fun isReleaseOrMaster(vcsRoot: GitVcsRoot) : Boolean =
-        vcsRoot == JdkGradlePluginsVcsRootRelease || vcsRoot == JdkGradlePluginsVcsRootMaster

@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.v2017_2.BuildType
 import jetbrains.buildServer.configs.kotlin.v2017_2.BuildTypeSettings
 import jetbrains.buildServer.configs.kotlin.v2017_2.triggers.vcs
 
-class JdkGradlePlugins_Stage_Trigger_BT(uuid: String, branch: String, config: (bt:BuildType) -> kotlin.Unit) : BuildType({
+class JdkGradlePlugins_Stage_Trigger_BT(uuid: String, branch: String, config: (bt: BuildType) -> kotlin.Unit) : BuildType({
     this.uuid = uuid
     this.id = "JdkGradlePlugins_STAGE_BT_TRIGGER_${branch}"
     this.name = "JdkGradlePlugins Trigger($branch)"
@@ -17,13 +17,6 @@ class JdkGradlePlugins_Stage_Trigger_BT(uuid: String, branch: String, config: (b
         vcs {
             triggerRules = "+:$branch"
             branchFilter = "+:$branch"
-        }
-    }
-
-    dependencies {
-        dependency(JdkGradlePlugins.buildTypes.JdkGradlePlugins_SanityCheck(branch)) {
-            snapshot {
-            }
         }
     }
 

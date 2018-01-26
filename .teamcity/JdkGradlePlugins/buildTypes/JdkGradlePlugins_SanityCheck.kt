@@ -1,9 +1,11 @@
 package JdkGradlePlugins.buildTypes
 
+import isReleaseOrMaster
 import jetbrains.buildServer.configs.kotlin.v2017_2.BuildType
 import jetbrains.buildServer.configs.kotlin.v2017_2.buildSteps.gradle
+import jetbrains.buildServer.configs.kotlin.v2017_2.vcs.GitVcsRoot
 
-class JdkGradlePlugins_SanityCheck(branch: String) : BuildType({
+class JdkGradlePlugins_SanityCheck(branch: String, vcsRoot: GitVcsRoot) : BuildType({
     uuid = "39a450f0-cdf6-465e-a9bc-5109d30ba798-$branch"
     id = "JdkGradlePlugins_${branch}_buildAndTest_SanityCheck"
     name = "SanityCheck"
@@ -13,14 +15,15 @@ class JdkGradlePlugins_SanityCheck(branch: String) : BuildType({
     }
 
     vcs {
-        root(_Root.vcsRoots.JdkGradlePlugins_HttpsGithubComBreskebyJdkGradlePluginsGit)
-        buildDefaultBranch = (branch != "master")
-        excludeDefaultBranchChanges = (branch != "master")
+        root(vcsRoot)
+        buildDefaultBranch = isReleaseOrMaster(vcsRoot)
+        excludeDefaultBranchChanges = isReleaseOrMaster(vcsRoot)
 
     }
 
     steps {
         gradle {
+            buildFile = ""
             tasks = "clean assemble"
             useGradleWrapper = true
         }
