@@ -14,11 +14,10 @@ class JdkGradlePlugins_Stage_Trigger_BT(uuid: String, branch: String, config: (b
     config.invoke(this);
 
     triggers {
+
         vcs {
-            triggerRules = """
-                +:refs/heads/*
-                +:refs/(pull/*/head)
-            """.trimIndent()
+            triggerRules = "+:$branch"
+            branchFilter = "+:$branch"
         }
     }
 
