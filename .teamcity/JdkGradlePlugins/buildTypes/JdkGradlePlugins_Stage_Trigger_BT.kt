@@ -16,7 +16,7 @@ class JdkGradlePlugins_Stage_Trigger_BT(uuid: String, branch: String, config: (b
     triggers {
         vcs {
             triggerRules = """
-                +:refs/heads/
+                +:refs/heads/*
                 +:refs/(pull/*/head)
             """.trimIndent()
         }
