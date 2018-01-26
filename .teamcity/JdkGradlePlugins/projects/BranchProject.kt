@@ -26,7 +26,7 @@ class BranchProject(branch: String, vcsRoot: GitVcsRoot, uuid: String) : DotcomP
                         buildDefaultBranch = isReleaseOrMaster(vcsRoot)
                         excludeDefaultBranchChanges = isReleaseOrMaster(vcsRoot)
                     }
-                    it.dependencies.dependency(sanityBt, {})
+                    it.dependencies.dependency(sanityBt, {snapshot {}})
                 }))
             }),
             Project({
