@@ -1,16 +1,21 @@
 package JdkGradlePlugins.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2017_2.BuildType
+import jetbrains.buildServer.configs.kotlin.v2017_2.triggers.vcs
 
-class JdkGradlePlugins_Branch(uuid: String, branch: String) : BuildType({
+class JdkGradlePlugins_Stage_Trigger_BT(uuid: String, branch: String, config: (bt:BuildType) -> kotlin.Unit) : BuildType({
     this.uuid = uuid
     this.id = "JdkGradlePlugins_BT_${branch}"
     this.name = "JdkGradlePlugins${branch}"
 
-    vcs {
-        root(_Root.vcsRoots.JdkGradlePlugins_HttpsGithubComBreskebyJdkGradlePluginsGit)
+    config.invoke(this);
 
-        buildDefaultBranch = false
-        excludeDefaultBranchChanges = true
+    triggers {
+        vcs {
+            triggerRules = """
+                +:refs/heads/
+                +:refs/(pull/*/head)
+            """.trimIndent()
+        }
     }
 })

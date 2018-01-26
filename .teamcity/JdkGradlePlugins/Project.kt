@@ -1,7 +1,6 @@
 package JdkGradlePlugins
 
 import JdkGradlePlugins.buildTypes.JdkGradlePlugins_FuncTest
-import JdkGradlePlugins.buildTypes.JdkGradlePlugins_SanityCheck
 import JdkGradlePlugins.buildTypes.JdkGradlePlugins_UnitTest
 import JdkGradlePlugins.projects.BranchProject
 import jetbrains.buildServer.configs.kotlin.v2017_2.Project
@@ -13,7 +12,6 @@ object Project : Project({
     name = "Jdk Gradle Plugins"
 
     buildType(JdkGradlePlugins_FuncTest)
-    buildType(JdkGradlePlugins_SanityCheck)
     buildType(JdkGradlePlugins_UnitTest)
 
     subProjects(
