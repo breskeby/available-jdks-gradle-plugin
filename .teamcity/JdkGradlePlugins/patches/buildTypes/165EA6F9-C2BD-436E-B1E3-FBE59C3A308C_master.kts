@@ -11,6 +11,19 @@ To apply the patch, change the buildType with uuid = '165EA6F9-C2BD-436E-B1E3-FB
 accordingly and delete the patch script.
 */
 changeBuildType("165EA6F9-C2BD-436E-B1E3-FBE59C3A308C_master") {
+    vcs {
+
+        check(buildDefaultBranch == false) {
+            "Unexpected option value: buildDefaultBranch = $buildDefaultBranch"
+        }
+        buildDefaultBranch = true
+
+        check(excludeDefaultBranchChanges == true) {
+            "Unexpected option value: excludeDefaultBranchChanges = $excludeDefaultBranchChanges"
+        }
+        excludeDefaultBranchChanges = false
+    }
+
     triggers {
         val trigger1 = find<VcsTrigger> {
             vcs {
