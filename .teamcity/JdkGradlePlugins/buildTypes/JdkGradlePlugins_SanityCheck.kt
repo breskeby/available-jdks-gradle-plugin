@@ -14,7 +14,6 @@ class JdkGradlePlugins_SanityCheck(branch: String) : BuildType({
 
     vcs {
         root(_Root.vcsRoots.JdkGradlePlugins_HttpsGithubComBreskebyJdkGradlePluginsGit)
-
         buildDefaultBranch = false
     }
 
