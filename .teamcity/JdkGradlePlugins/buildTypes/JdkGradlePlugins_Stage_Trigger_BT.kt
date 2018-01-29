@@ -8,8 +8,7 @@ class JdkGradlePlugins_Stage_Trigger_BT(uuid: String, branch: String, config: (b
     this.uuid = uuid
     this.id = "JdkGradlePlugins_STAGE_BT_TRIGGER_${branch}"
     this.name = "Trigger($branch)"
-
-    type = BuildTypeSettings.Type.COMPOSITE
+    this.type = BuildTypeSettings.Type.COMPOSITE
 
     config.invoke(this);
 
