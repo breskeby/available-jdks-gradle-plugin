@@ -15,8 +15,11 @@ class JdkGradlePlugins_Stage_Trigger_BT(uuid: String, branch: String, config: (b
 
     triggers {
         vcs {
-            triggerRules = "+:$branch"
-            branchFilter = "+:$branch"
+            triggerRules = ""
+            branchFilter = "+:*"
+            perCheckinTriggering = true
+            groupCheckinsByCommitter = true
+            enableQueueOptimization = false
         }
     }
 
