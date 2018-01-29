@@ -23,7 +23,7 @@ class JdkGradlePlugins_SanityCheck(branch: String, vcsRoot: GitVcsRoot) : BuildT
 
     steps {
         gradle {
-            buildFile = ""
+            buildFile = "build.gradle" //
             tasks = "clean assemble"
             useGradleWrapper = true
         }
