@@ -7,7 +7,7 @@ import jetbrains.buildServer.configs.kotlin.v2017_2.vcs.GitVcsRoot
 
 class JdkGradlePlugins_SanityCheck(branch: String, vcsRoot: GitVcsRoot) : BuildType({
     uuid = "39a450f0-cdf6-465e-a9bc-5109d30ba798-$branch"
-    id = "JdkGradlePlugins_${branch}_buildAndTest_SanityCheck"
+    id = "JdkGradlePlugins_buildAndTest_SanityCheck_${branch}"
     name = "SanityCheck"
 
     params {
